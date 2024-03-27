@@ -128,7 +128,12 @@ class BinarySearchTree {
             int smallest = rightRoot.data;
             current.data = smallest;
             // Remove smallest
-            prevBeforeRightRoot.left = rightRoot.right;
+            System.out.println(rightRoot.data + " " + prevBeforeRightRoot.data);
+            if (prevBeforeRightRoot.left == rightRoot)
+                prevBeforeRightRoot.left = rightRoot.right;
+            else
+                prevBeforeRightRoot.right = rightRoot.right;
+
         }
     }
 
@@ -155,10 +160,13 @@ class BinarySearchTree {
         tree.insert(8);
         tree.insert(12);
         tree.insert(16);
+        tree.insert(11);
+        tree.insert(10);
         tree.printPreorder();
         System.out.println(tree.find(12));
         System.out.println(tree.find(13));
         System.out.println();
+        //tree.delete(10);
         tree.printPreorder();
         System.out.println();
     }
